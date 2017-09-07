@@ -1,0 +1,32 @@
+<%= form_with(model: tenni, local: true) do |form| %>
+  <% if tenni.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tenni.errors.count, "error") %> prohibited this tenni from being saved:</h2>
+
+      <ul>
+      <% tenni.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :tenni_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team %>
+    <%= form.text_field :team, id: :tenni_team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :point %>
+    <%= form.number_field :point, id: :tenni_point %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
